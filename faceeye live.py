@@ -1,9 +1,8 @@
 import cv2
-# https://github.com/opencv/opencv/tree/master/data/haarcascades
 
 # Importing html smaples for Face and Eyes
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('C:\Users\Pankaj Sharma\Desktop\haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('C:\Users\Pankaj Sharma\Desktop\haarcascade_eye.xml')
 
 # Starting your Laptop Camera for recording
 cap = cv2.VideoCapture(0)
@@ -33,12 +32,16 @@ while True:
             # Creating Rectangle around Eyes with color Green and of width 2
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
 
-    cv2.imshow('img',img) # Displays the Image with rectangles on Face and Eyes
-    
-    k = cv2.waitKey(30)
-    stop = ord("S") # To Stop press capital S (While on the output image)
-    if k == stop:
+    cv2.imshow('img',img)# Displays the Image with rectangles on Face and Eyes
+    a=len(faces)
+    if a > 1:
+        print('Error')
         break
+    else:
+          k = cv2.waitKey(30)
+          stop = ord("S") # To Stop press capital S (While on the output image)
+          if k == stop:
+              break
 
 cap.release()
 cv2.destroyAllWindows()
