@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "EyeGlasses",
+  "version": "1",
+  "icons": {
+    "128": "icon_main.png"
+  },
+   "sockets": { 
+    "tcp": { "connect" : ["*"] },
+    "tcpServer": { "listen": "127.0.0.1:4444" } 
+  },
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  }
+}
